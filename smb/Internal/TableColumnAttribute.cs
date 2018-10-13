@@ -40,7 +40,7 @@ namespace BananaHomie.Smb.Internal
             var headerBldr = new StringBuilder();
 
             foreach (var column in columns)
-                headerBldr.Append(column.FormatName() + " ");
+                headerBldr.Append(column.FormatName()).Append(" ");
 
             return headerBldr.ToString().Trim();
         }
@@ -49,7 +49,7 @@ namespace BananaHomie.Smb.Internal
         {
             var bldr = new StringBuilder();
             foreach (var column in columns)
-                bldr.Append(column.Format() + " ");
+                bldr.Append(column.Format()).Append(" ");
 
             return bldr.ToString();
         }
