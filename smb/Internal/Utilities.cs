@@ -2,7 +2,6 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
-using System.Reflection;
 using BananaHomie.Smb.Management;
 
 namespace BananaHomie.Smb.Internal
@@ -26,14 +25,6 @@ namespace BananaHomie.Smb.Internal
 
             if (currentColor.HasValue)
                 Console.ForegroundColor = currentColor.Value;
-        }
-    }
-
-    internal static class Extensions
-    {
-        public static bool IsDefined<T>(this MemberInfo member) where T : Attribute
-        {
-            return member.IsDefined(typeof(T));
         }
     }
 }

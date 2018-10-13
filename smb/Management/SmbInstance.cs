@@ -3,7 +3,7 @@
     public enum SmbInstance : uint
     {
         Default = 0,
-        SlusterSharedVolume = 1,
+        ClusterSharedVolume = 1,
         StorageBus = 2,
         StorageReplica = 2,
     }

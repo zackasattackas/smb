@@ -12,10 +12,12 @@ namespace BananaHomie.Smb.Management
     public class SmbSession
     {
         [UsedImplicitly]
+        [TableColumn("Computer", -20, Order = 1)]
         [ManagementObjectProperty]
         public string ClientComputerName { get; private set; }
 
         [UsedImplicitly]
+        [TableColumn("User", -20, Order = 2)]
         [ManagementObjectProperty]
         public string ClientUserName { get; private set; }
 
@@ -28,8 +30,9 @@ namespace BananaHomie.Smb.Management
         public string Dialect { get; private set; }
 
         [UsedImplicitly]
+        [TableColumn("Opens", 5, Order =  3)]
         [ManagementObjectProperty]
-        public int NumOpens { get; private set; }
+        public ulong NumOpens { get; private set; }
 
         [UsedImplicitly]
         [ManagementObjectProperty]
@@ -37,19 +40,26 @@ namespace BananaHomie.Smb.Management
 
         [UsedImplicitly]
         [ManagementObjectProperty]
-        public int SecondsExist { get; set; }
+        public uint SecondsExists { get; set; }
+
+        [TableColumn("Alive", 10)]
+        public string Alive => TimeSpan.FromSeconds(SecondsExists).ToString("dd\\dhh\\hmm\\m");
 
         [UsedImplicitly]
         [ManagementObjectProperty]
-        public int SecondsIdle { get; set; }
+        public uint SecondsIdle { get; set; }
+
+        [TableColumn("Idle", 10)]
+        public string Idle => TimeSpan.FromSeconds(SecondsIdle).ToString("dd\\dhh\\hmm\\m");
+
+        [UsedImplicitly]
+        [TableColumn("Id", 12, Order = 0)]
+        [ManagementObjectProperty]
+        public ulong SessionId { get; private set; }
 
         [UsedImplicitly]
         [ManagementObjectProperty]
-        public int SessionId { get; private set; }
-
-        [UsedImplicitly]
-        [ManagementObjectProperty]
-        public SmbInstance? SmbInstance { get; private set; }
+        public SmbInstance SmbInstance { get; private set; }
 
         [UsedImplicitly]
         [ManagementObjectProperty]

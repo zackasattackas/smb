@@ -30,8 +30,8 @@ namespace BananaHomie.Smb.Commands
             set => _password = value;
         }
 
-        [Option("-t|--table", "Format and print records as a table", CommandOptionType.NoValue)]
-        public bool PrintAsTable { get; set; }
+        [Option("-l|--list", "Format and print records as a list", CommandOptionType.NoValue)]
+        public bool PrintAsList { get; set; }
 
 
         protected NetworkCredential GetNetworkCredential()

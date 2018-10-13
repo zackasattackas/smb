@@ -42,7 +42,7 @@ namespace BananaHomie.Smb.Internal
             foreach (var column in columns)
                 headerBldr.Append(column.FormatName()).Append(" ");
 
-            return headerBldr.ToString().Trim();
+            return headerBldr.ToString().TrimEnd();
         }
 
         public static string ToString(IEnumerable<TableColumnAttribute> columns)

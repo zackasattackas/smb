@@ -1,4 +1,5 @@
-﻿using McMaster.Extensions.CommandLineUtils;
+﻿using BananaHomie.Smb.Management;
+using McMaster.Extensions.CommandLineUtils;
 
 namespace BananaHomie.Smb.Commands
 {
@@ -7,7 +8,11 @@ namespace BananaHomie.Smb.Commands
     {
         public override void OnExecute(CommandLineApplication app)
         {
-            throw new System.NotImplementedException();
+            var sessions = SmbSession.EnumerateInstances(ComputerName, GetNetworkCredential());
+            if (PrintAsList)
+                PrintCollection(sessions);
+            else
+                PrintTable(sessions);
         }
     }
 }

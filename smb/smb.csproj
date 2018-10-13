@@ -65,11 +65,17 @@
     <Compile Include="Commands\SmbOpenFileCommand.cs" />
     <Compile Include="Commands\SmbSessionCommand.cs" />
     <Compile Include="Commands\SmbShareCommand.cs" />
+    <Compile Include="Internal\Extensions.cs" />
     <Compile Include="Internal\TableColumnAttribute.cs" />
     <Compile Include="Internal\Utilities.cs" />
     <Compile Include="Internal\WMI.cs" />
+    <Compile Include="Management\CachingMode.cs" />
+    <Compile Include="Management\FolderEnumerationMode.cs" />
     <Compile Include="Management\ManagementObjectAttribute.cs" />
     <Compile Include="Management\ManagementObjectPropertyAttribute.cs" />
+    <Compile Include="Management\ShareAvailability.cs" />
+    <Compile Include="Management\ShareState.cs" />
+    <Compile Include="Management\ShareType.cs" />
     <Compile Include="Management\SmbConnection.cs" />
     <Compile Include="Management\SmbInstance.cs" />
     <Compile Include="Management\SmbOpenFile.cs" />

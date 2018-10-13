@@ -9,10 +9,10 @@ namespace BananaHomie.Smb.Commands
         public override void OnExecute(CommandLineApplication app)
         {
             var connections = SmbConnection.EnumerateInstances(ComputerName, GetNetworkCredential());
-            if (PrintAsTable)
-                PrintTable(connections);
+            if (PrintAsList)
+                PrintCollection(connections);            
             else
-                PrintCollection(connections);
+                PrintTable(connections);
         }
     }
 }
