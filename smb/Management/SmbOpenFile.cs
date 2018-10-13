@@ -9,15 +9,18 @@ using JetBrains.Annotations;
 namespace BananaHomie.Smb.Management
 {
     [ManagementObject("MSFT_SmbOpenFile", Namespace = "Root\\Microsoft\\Windows\\Smb")]
-    public class SmbOpenFile
+    public class SmbOpenFile : IManagementObjectWrapper
     {
         [UsedImplicitly]
-        [TableColumn("Client", -15, Order = 1)]
+        public ManagementObject BaseObject { get; private set; }
+
+        [UsedImplicitly]
+        [TableColumn("Client", -25, Order = 1)]
         [ManagementObjectProperty]
         public string ClientComputerName { get; private set; }
 
         [UsedImplicitly]
-        [TableColumn("User", -15, Order = 2)]
+        [TableColumn("User", -25, Order = 2)]
         [ManagementObjectProperty]
         public string ClientUserName { get; private set; }
 

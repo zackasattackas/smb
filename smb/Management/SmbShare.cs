@@ -8,8 +8,11 @@ using System.Reflection;
 namespace BananaHomie.Smb.Management
 {
     [ManagementObject("MSFT_SmbShare", Namespace = "Root\\Microsoft\\Windows\\Smb")]
-    public class SmbShare
+    public class SmbShare : IManagementObjectWrapper
     {
+        [UsedImplicitly]
+        public ManagementObject BaseObject { get; private set; }
+
         [UsedImplicitly]
         [ManagementObjectProperty]
         public ShareAvailability AvailabilityType { get; private set; }

@@ -14,7 +14,7 @@ namespace BananaHomie.Smb.Internal
                 return searcher.Get();
         }
 
-        public static T Bind<T>(ManagementObject o)
+        public static T Bind<T>(ManagementObject o) where T : IManagementObjectWrapper
         {
             if (!typeof(T).IsDefined(typeof(ManagementObjectAttribute)))
                 throw new ArgumentException("{T} must define the ManagementObjectAttribute attribute.");
@@ -24,6 +24,12 @@ namespace BananaHomie.Smb.Internal
 
             foreach (var member in members)
             {
+                if (member.Name == "BaseObject")
+                {
+                    ((PropertyInfo) member).SetValue(instance, o);
+                    continue;
+                }
+
                 var mgmtPropertyAttr = member.GetCustomAttribute<ManagementObjectPropertyAttribute>();
                 var mgmtPropertyValue = o.GetPropertyValue(mgmtPropertyAttr.Name ?? member.Name);
 

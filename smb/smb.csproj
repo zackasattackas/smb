@@ -58,7 +58,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Commands\CloseSessionCommand.cs" />
     <Compile Include="Commands\CommandBase.cs" />
+    <Compile Include="Commands\HelpCommand.cs" />
     <Compile Include="Commands\SmbCommand.cs" />
     <Compile Include="Commands\SmbCommandBase.cs" />
     <Compile Include="Commands\SmbConnectionCommand.cs" />
@@ -71,6 +73,7 @@
     <Compile Include="Internal\WMI.cs" />
     <Compile Include="Management\CachingMode.cs" />
     <Compile Include="Management\FolderEnumerationMode.cs" />
+    <Compile Include="Management\IManagementObjectWrapper.cs" />
     <Compile Include="Management\ManagementObjectAttribute.cs" />
     <Compile Include="Management\ManagementObjectPropertyAttribute.cs" />
     <Compile Include="Management\ShareAvailability.cs" />

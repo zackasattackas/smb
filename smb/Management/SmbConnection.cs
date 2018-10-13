@@ -8,14 +8,17 @@ using JetBrains.Annotations;
 namespace BananaHomie.Smb.Management
 {
     [ManagementObject("MSFT_SmbConnection", Namespace = "Root\\Microsoft\\Windows\\Smb")]
-    public class SmbConnection
+    public class SmbConnection : IManagementObjectWrapper
     {
+        [UsedImplicitly]
+        public ManagementObject BaseObject { get; private set; }
+
         [UsedImplicitly]
         [ManagementObjectProperty]
         public bool ContinuouslyAvailable { get; private set; }
 
         [UsedImplicitly]
-        [TableColumn("User", -15, Order = 3)]
+        [TableColumn("User", -25, Order = 3)]
         [ManagementObjectProperty]
         public string Credential { get; private set; }
 
@@ -28,7 +31,7 @@ namespace BananaHomie.Smb.Management
         public bool Encrypted { get; private set; }
 
         [UsedImplicitly]
-        [TableColumn("Open", 4, Order = 2)]
+        [TableColumn("Opens", 5, Order = 2)]
         [ManagementObjectProperty]
         public ulong NumOpens { get; private set; }
 
@@ -37,7 +40,7 @@ namespace BananaHomie.Smb.Management
         public bool Redirected { get; private set; }
 
         [UsedImplicitly]
-        [TableColumn("Server", -15, Order = 0)]
+        [TableColumn("Server", -25, Order = 0)]
         [ManagementObjectProperty]
         public string ServerName { get; private set; }
 

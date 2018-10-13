@@ -4,6 +4,7 @@ using McMaster.Extensions.CommandLineUtils;
 namespace BananaHomie.Smb.Commands
 {
     [Command(Description = "Show open sessions")]
+    [Subcommand("close", typeof(CloseSessionCommand))]
     internal class SmbSessionCommand : SmbCommandBase
     {
         public override void OnExecute(CommandLineApplication app)

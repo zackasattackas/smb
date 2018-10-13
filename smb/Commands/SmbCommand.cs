@@ -7,6 +7,7 @@ namespace BananaHomie.Smb.Commands
     [Command("smb", Description = "View and monitor SMB activity")]
     [Subcommand("connections", typeof(SmbConnectionCommand))]
     [Subcommand("files", typeof(SmbOpenFileCommand))]
+    [Subcommand("help", typeof(HelpCommand))]
     [Subcommand("sessions", typeof(SmbSessionCommand))]
     [Subcommand("shares", typeof(SmbShareCommand))]   
     internal class SmbCommand : CommandBase

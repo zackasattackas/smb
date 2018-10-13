@@ -34,7 +34,7 @@ namespace BananaHomie.Smb.Commands
         public bool PrintAsList { get; set; }
 
 
-        protected NetworkCredential GetNetworkCredential()
+        public NetworkCredential GetNetworkCredential()
         {
             if (ComputerName == "." || ComputerName == "localhost" || ComputerName == Environment.MachineName)
                 return default;
@@ -83,8 +83,8 @@ namespace BananaHomie.Smb.Commands
 
                 count++;
             }
-
-            Utilities.Print($"\r\n{count} item(s)");
+            
+            Utilities.Print(count > 0 ? $"\r\n{count} item(s)" : "No items found");
 
             void PrintRow(IEnumerable<TableColumnAttribute> columns)
             {

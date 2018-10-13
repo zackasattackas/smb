@@ -9,15 +9,20 @@ using JetBrains.Annotations;
 namespace BananaHomie.Smb.Management
 {
     [ManagementObject("MSFT_SmbSession", Namespace = "Root\\Microsoft\\Windows\\Smb")]
-    public class SmbSession
+    public class SmbSession : IManagementObjectWrapper
     {
+        #region Properties
+
         [UsedImplicitly]
-        [TableColumn("Computer", -20, Order = 1)]
+        public ManagementObject BaseObject { get; private set; }
+
+        [UsedImplicitly]
+        [TableColumn("Computer", -25, Order = 1)]
         [ManagementObjectProperty]
         public string ClientComputerName { get; private set; }
 
         [UsedImplicitly]
-        [TableColumn("User", -20, Order = 2)]
+        [TableColumn("User", -25, Order = 2)]
         [ManagementObjectProperty]
         public string ClientUserName { get; private set; }
 
@@ -65,6 +70,8 @@ namespace BananaHomie.Smb.Management
         [ManagementObjectProperty]
         public string TransportName { get; private set; }
 
+        #endregion
+
         public static IEnumerable<SmbSession> EnumerateInstances(
             string computerName = ".",
             NetworkCredential credentials = default)
@@ -73,6 +80,13 @@ namespace BananaHomie.Smb.Management
 
             foreach (var o in WMI.Query(classInfo.GetQuery(), classInfo.GetScope(computerName, credentials)))
                 yield return WMI.Bind<SmbSession>((ManagementObject) o);
+        }
+
+        public void ForceClose()
+        {
+            var result = BaseObject.InvokeMethod(nameof(ForceClose), null, null);
+
+            throw new NotImplementedException();
         }
     }
 }
