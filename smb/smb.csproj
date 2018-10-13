@@ -67,6 +67,7 @@
     <Compile Include="Commands\SmbOpenFileCommand.cs" />
     <Compile Include="Commands\SmbSessionCommand.cs" />
     <Compile Include="Commands\SmbShareCommand.cs" />
+    <Compile Include="Commands\SmbWitnessCommand.cs" />
     <Compile Include="Internal\Extensions.cs" />
     <Compile Include="Internal\TableColumnAttribute.cs" />
     <Compile Include="Internal\Utilities.cs" />
@@ -84,6 +85,9 @@
     <Compile Include="Management\SmbOpenFile.cs" />
     <Compile Include="Management\SmbSession.cs" />
     <Compile Include="Management\SmbShare.cs" />
+    <Compile Include="Management\SmbShareAccess.cs" />
+    <Compile Include="Management\SmbShareCreationOptions.cs" />
+    <Compile Include="Management\SmbWitnessClient.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

@@ -1,4 +1,5 @@
-﻿using BananaHomie.Smb.Internal;
+﻿using System;
+using BananaHomie.Smb.Internal;
 using JetBrains.Annotations;
 using System.Collections.Generic;
 using System.Management;
@@ -10,6 +11,8 @@ namespace BananaHomie.Smb.Management
     [ManagementObject("MSFT_SmbShare", Namespace = "Root\\Microsoft\\Windows\\Smb")]
     public class SmbShare : IManagementObjectWrapper
     {
+        #region Properties
+
         [UsedImplicitly]
         public ManagementObject BaseObject { get; private set; }
 
@@ -103,6 +106,10 @@ namespace BananaHomie.Smb.Management
         [ManagementObjectProperty]
         public string Volume { get; private set; }
 
+        #endregion
+
+        #region Static methods
+
         public static IEnumerable<SmbShare> EnumerateInstances(
             string computerName = ".",
             NetworkCredential credentials = default)
@@ -112,5 +119,36 @@ namespace BananaHomie.Smb.Management
             foreach (var o in WMI.Query(classInfo.GetQuery(), classInfo.GetScope(computerName, credentials)))
                 yield return WMI.Bind<SmbShare>((ManagementObject) o);
         }
+
+        public static SmbShare Create(string name, string scope, string path, string description, SmbShareCreationOptions options)
+        {
+            throw new NotImplementedException();
+        }
+
+        #endregion
+
+        #region Public methods
+
+        public int Block(List<string> accounts)
+        {
+            throw new NotImplementedException();
+        }
+
+        public int Unblock(List<string> accounts)
+        {
+            throw new NotImplementedException();
+        }
+
+        public int Grant(List<string> accounts, int accessRights)
+        {
+            throw new NotImplementedException();
+        }
+
+        public int Revoke(List<string> accounts, int accessRights)
+        {
+            throw new NotImplementedException();
+        }
+
+        #endregion
     }
 }

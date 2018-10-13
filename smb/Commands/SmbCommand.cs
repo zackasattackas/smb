@@ -10,6 +10,7 @@ namespace BananaHomie.Smb.Commands
     [Subcommand("help", typeof(HelpCommand))]
     [Subcommand("sessions", typeof(SmbSessionCommand))]
     [Subcommand("shares", typeof(SmbShareCommand))]   
+    [Subcommand("witness", typeof(SmbWitnessCommand))]
     internal class SmbCommand : CommandBase
     {
         public override void OnExecute(CommandLineApplication app)
