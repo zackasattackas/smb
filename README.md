@@ -4,7 +4,7 @@ Command-line application for viewing/monitoring SMB activity.
 ### Command-line usage
 ```
 C:\>smb --help
-1.0.44.224
+1.0.72.414
 
 View and monitor SMB activity
 
